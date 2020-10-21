@@ -42,6 +42,6 @@ I only tend to work on relatively simple stuff, so the two scenarios above are a
 
 But for me, the end result is a work folder with just the project (and other stuff uploading), and all the transient crud from the endless run-debug-sometimes-build-to-see-what-happens cycle not polluting my Dropbox account.
 
-![Screenshot](/images/Screen Shot 2020-10-21 at 08.23.26.png)
+![Screenshot](images/Screen Shot 2020-10-21 at 08.23.26.png)
 
 This was all last checked in Xojo 2019 r3.1, but I see no reason why it shouldn’t be good for a lot of other versions spanning the years.
