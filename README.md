@@ -2,7 +2,7 @@
 
 When I’m working with Xojo I (of course) want the project (and support files) constantly uploaded by Dropbox whenever they are modified.
 
-But I don’t want the builds folder uploaded (at least, not all the time – maybe just at the end when all is complete) and I **definitely** don’t want the `my-app-name.debug.app` package constantly chundering away in the background every time I hit `Run` in the IDE.
+But I don’t want the builds folder uploaded (at least, not all the time – maybe just at the end of the project when I’m done, or at the most at major milestones) and I **definitely** don’t want the `my-app-name.debug.app` package constantly chundering away in the background every time I hit `Run` in the IDE.
 
 It’s possible to set the Builds directory to be ingnored by Dropbox from within the Dropbox app itself, but with even this simple thing I’ve sometimes encountered problems. It’s also possible to set the debug app package to be ignored, but that's really too much like hard work ...
 
