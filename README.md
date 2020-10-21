@@ -8,6 +8,8 @@ It’s possible to set the Builds directory to be ingnored by Dropbox from withi
 
 The sample project contains two build steps, one a script that runs on `Build`, the other a script that executes on `Run`. Both run after the build step itself, and both do the same thing: set Dropbox to ignore whatever is being built via the command line `xattr` command.
 
+(Find out more about xattr [here](https://en.wikipedia.org/wiki/Extended_file_attributes) and [here](https://ss64.com/osx/xattr.html).)
+
 The debug/run script sets just the appp package to be ignored:
 
     var path as String = CurrentBuildLocationNative + "/" + CurrentBuildAppName + ".app"
