@@ -4,13 +4,13 @@ When I’m working with Xojo I (of course) want the project (and support files) 
 
 But I don’t want the builds folder uploaded (at least, not all the time – maybe just at the end of the project when I’m done, or at the most at major milestones) and I **definitely** don’t want the `my-app-name.debug.app` package constantly chundering away in the background every time I hit `Run` in the IDE.
 
-It’s possible to set the Builds directory to be ingnored by Dropbox from within the Dropbox app itself, but with even this simple thing I’ve sometimes encountered problems. It’s also possible to set the debug app package to be ignored, but that's really too much like hard work ...
+It’s possible to set the Builds directory to be ignored by Dropbox from within the Dropbox app itself, but with even this simple thing I’ve sometimes encountered problems. It’s also possible to set the debug app package to be ignored, but that's really too much like hard work ...
 
-The sample project contains two build steps, one a script that runs on `Build`, the other a script that executes on `Run`. Both run after the build step itself, and both do the same thing: set Dropbox to ignore whatever is being built via the command line `xattr` command.
+The sample project contains two build steps, one a script that runs on `Build`, the other a script that executes on `Run`. Both execute after the build step itself, and both do the same thing: set Dropbox to ignore whatever is being built via the command line `xattr` command.
 
 (Find out more about `xattr` [here](https://en.wikipedia.org/wiki/Extended_file_attributes) and [here](https://ss64.com/osx/xattr.html).)
 
-The debug/run script sets just the appp package to be ignored:
+The **debug/run script** sets just the appp package to be ignored:
 
     var path as String = CurrentBuildLocationNative + "/" + CurrentBuildAppName + ".app"
 
@@ -20,7 +20,7 @@ The debug/run script sets just the appp package to be ignored:
 
     if result <> "" then print( result )
 
-The build script sets the entire build products drectory to be ignored:
+The **build script** sets the entire build products drectory to be ignored:
 
     var bits() as String = CurrentBuildLocationNative.Split( "/" )
 
