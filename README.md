@@ -20,7 +20,7 @@ The **debug/run script** sets just the app package to be ignored:
 
     if result <> "" then print( result )
 
-The **build script** sets the entire build products drectory to be ignored:
+The **build script** sets the entire build products directory to be ignored:
 
     var bits() as String = CurrentBuildLocationNative.Split( "/" )
 
