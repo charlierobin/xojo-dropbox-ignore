@@ -65,3 +65,7 @@ if result <> “” then print( result )
 ```
 
 I have set to run on both debugs and release builds, which is silly, as once set it doesn’t need to be done again (unless the .git directory is recreated from scratch). But it seems to do no harm, and it’s easy to have it as part of the build process, where it can then be forgotten about.
+
+#### Note
+
+Paths in all the scripts are native, ie: unescaped, but are encapsulated in quotes when run, and therefore do not require escaping.
