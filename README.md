@@ -56,7 +56,7 @@ The original Dropbox help page about ignoring folders is [here](https://help.dro
 
 If I am working with a Git repository then Dropbox will also keep backing up the entire (hidden) `.git` directory, which is frequently not what I want.
 
-The **ScriptIgnoreDotGit** also sets the Dropbox ignore attribute on that:
+The **ScriptIgnoreDotGit** step also sets the Dropbox ignore attribute on that:
 
 ```
 var result as String = DoShellCommand( “xattr -w com.dropbox.ignored 1 “”$PROJECT_PATH/.git””” )
