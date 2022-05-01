@@ -12,16 +12,17 @@ The sample project contains two build steps, one a script that runs on `Build`, 
 
 The **debug/run script** sets just the app package to be ignored:
 
+```
     var path as String = CurrentBuildLocationNative + "/" + CurrentBuildAppName + ".app"
 
-    var result as String
-
-    result = DoShellCommand( "xattr -w com.dropbox.ignored 1 """ + path + """" )
+    var result as String = DoShellCommand( "xattr -w com.dropbox.ignored 1 """ + path + """" )
 
     if result <> "" then print( result )
+```
 
 The **build script** sets the entire build products directory to be ignored:
 
+```
     var bits() as String = CurrentBuildLocationNative.Split( "/" )
 
     var path as String
@@ -34,11 +35,10 @@ The **build script** sets the entire build products directory to be ignored:
   
     next
 
-    var result as String
-
-    result = DoShellCommand( "xattr -w com.dropbox.ignored 1 """ + path + """" )
+    var result as String = DoShellCommand( "xattr -w com.dropbox.ignored 1 """ + path + """" )
 
     if result <> "" then print( result )
+```
 
 I only tend to work on relatively simple stuff, so the two scenarios above are adequate for me ... your own mileage may vary.
 
@@ -51,3 +51,17 @@ This was all last checked in Xojo 2019 r3.1, but I see no reason why it shouldn�
 The original Dropbox help page about ignoring folders is [here](https://help.dropbox.com/files-folders/restore-delete/ignored-files).
 
 (The Dropbox help page outlines how this can also be done on Windows and Linux, but I’m a Mac person, so sorry! ... You only get the OSX version on a plate. The other platform you’ll have to adapt for yourself.)
+
+### (A Very Small) Bonus Round - Hidden Git directories
+
+If I am working with a Git repository then Dropbox will also keep backing up the entire (hidden) `.git` directory, which is frequently not what I want.
+
+The **ScriptIgnoreDotGit** also sets the Dropbox ignore attribute on that:
+
+```
+var result as String = DoShellCommand( “xattr -w com.dropbox.ignored 1 “”$PROJECT_PATH/.git””” )
+
+if result <> “” then print( result )
+```
+
+I have set to run on both debugs and release builds, which is silly, as once set it doesn’t need to be done again (unless the .git directory is recreated from scratch). But it seems to do no harm, and it’s easy to have it as part of the build process, where it can then be forgotten about.
