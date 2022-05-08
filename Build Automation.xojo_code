@@ -40,7 +40,11 @@
 					
 				End
 				Begin IDEScriptBuildStep ScriptIgnoreDotGit , AppliesTo = 0, Architecture = 0
-					var result as String = DoShellCommand( "xattr -w com.dropbox.ignored 1 ""$PROJECT_PATH/.git""" )
+					var result as String = DoShellCommand( "[ -d ""$PROJECT_PATH/.git"" ] && xattr -w com.dropbox.ignored 1 ""$PROJECT_PATH/.git""" )
+					
+					if result <> "" then print( result )
+					
+					result = DoShellCommand( "[ -d ""$PROJECT_PATH/../.git"" ] && xattr -w com.dropbox.ignored 1 ""$PROJECT_PATH/../.git""" )
 					
 					if result <> "" then print( result )
 					
